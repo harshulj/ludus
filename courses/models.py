@@ -5,12 +5,21 @@ class Course(models.Model):
     name = models.CharField(max_length=50)
     slug = models.SlugField(max_length=60)
 
+    def __unicode__(self):
+        return self.name
+
+
 class Faculty(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     code = models.CharField(max_length=5)
     slug = models.SlugField(max_length=50)
+    courses = models.ManyToManyField(Course)
 
     @property
     def name(self):
         return self.first_name + ' ' + self.last_name
+
+    def __unicode__(self):
+        return self.name
+

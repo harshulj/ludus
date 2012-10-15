@@ -16,6 +16,9 @@ class Faculty(models.Model):
     slug = models.SlugField(max_length=50)
     courses = models.ManyToManyField(Course, related_name='faculties')
 
+    class Meta():
+        verbose_name_plural = "faculties"
+
     @property
     def name(self):
         return self.first_name + ' ' + self.last_name

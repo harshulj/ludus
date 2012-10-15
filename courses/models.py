@@ -14,7 +14,7 @@ class Faculty(models.Model):
     last_name = models.CharField(max_length=50)
     code = models.CharField(max_length=5)
     slug = models.SlugField(max_length=50)
-    courses = models.ManyToManyField(Course)
+    courses = models.ManyToManyField(Course, related_name='faculties')
 
     @property
     def name(self):

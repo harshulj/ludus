@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% url courses.views.day_schedule day=0 as s_url %}
+  <li><a href="{{ s_url|slice:"0:-2" }}0/">Sunday</a></li>
+  <li><a href="{{ s_url|slice:"0:-2" }}1/">Monday</a></li>
+  <li><a href="{{ s_url|slice:"0:-2" }}2/">Tuesday</a></li>
+  <li><a href="{{ s_url|slice:"0:-2" }}3/">Wednesday</a></li>
+  <li><a href="{{ s_url|slice:"0:-2" }}4/">Thursday</a></li>
+  <li><a href="{{ s_url|slice:"0:-2" }}5/">Friday</a></li>
+  <li><a href="{{ s_url|slice:"0:-2" }}6/">Saturday</a></li>
+{% endblock %}

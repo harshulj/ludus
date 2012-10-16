@@ -19,5 +19,7 @@ urlpatterns = patterns('',
     url(r'^courses/$', courses),
     url(r'^schedule/all/$', schedule),
     url(r'^schedule/c/(?P<course_id>\d+)/$', schedule),
+    url(r'^schedule/d/(?P<day>\d)/$', day_schedule),
+    url(r'^schedule/d/', direct_to_template, {'template': 'daylist.html'}),
     url(r'^$', direct_to_template, {'template': 'index.html'}),
 )

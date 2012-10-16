@@ -13,3 +13,7 @@ def schedule(request, course_id=-1):
     else:
         timings = ClassTime.objects.filter(course=course_id)
     return render_to_response('schedule.html', {'timings' : timings})
+
+def day_schedule(request, day):
+    timings = ClassTime.objects.filter(day=day)
+    return render_to_response('schedule.html', {'timings':timings})

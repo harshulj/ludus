@@ -1,5 +1,5 @@
-<html>
-  <body>
+{% extends 'base.html' %}
+  {% block content %}
     <table>
       {% for course in courses %}
         <tr>
@@ -14,5 +14,4 @@
 	</tr>
       {% endfor %}
     </table>
-  </body>
-</html>
+  {% endblock %}

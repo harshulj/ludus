@@ -9,7 +9,8 @@
       {% for course in courses %}
         <tr>
 	  <td>
-	    {{ course.name }}
+	    {% url courses.views.schedule course_id=course.id as schedule_url%}
+	    <a href="{{ schedule_url }}">{{ course.name }}</a>
 	  </td>
 	  <td>
 	    {% for faculty in course.faculties.all %}

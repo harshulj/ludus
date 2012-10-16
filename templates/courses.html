@@ -5,17 +5,24 @@
       <tr>
 	<th>Course Name</th>
 	<th>Faculty Name</th>
+	<th>Class Schedule</th>
+	<th>Assignments</th>
       </tr>
       {% for course in courses %}
         <tr>
 	  <td>
-	    {% url courses.views.schedule course_id=course.id as schedule_url%}
-	    <a href="{{ schedule_url }}">{{ course.name }}</a>
-	  </td>
+	    {{ course.name }}
 	  <td>
 	    {% for faculty in course.faculties.all %}
 		{{ faculty}}, 
 	    {% endfor %}
+	  </td>
+	  <td>
+	    {% url courses.views.schedule course_id=course.id as schedule_url%}
+	    <a href="{{ schedule_url }}">Schedule</a>
+	  </td>
+	  <td>
+	    Assignments
 	  </td>
 	</tr>
       {% endfor %}

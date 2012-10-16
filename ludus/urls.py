@@ -17,5 +17,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^courses/$', courses),
+    url(r'^schedule/all/$', schedule),
+    url(r'^schedule/c/(?P<course_id>\d+)/$', schedule),
     url(r'^$', direct_to_template, {'template': 'index.html'}),
 )

@@ -28,23 +28,16 @@ class Faculty(models.Model):
         return self.name
 
 class ClassTime(models.Model):
-    SUNDAY = 'Sun'
-    MONDAY = 'Mon'
-    TUESDAY = 'Tue'
-    WEDNESDAY = 'Wed'
-    THURSDAY = 'Thurs'
-    FRIDAY = 'Fri'
-    SATURDAY = 'Sat'
     DAY_CHOICES = (
-        (SUNDAY, 'Sunday'),
-        (MONDAY, 'Monday'),
-        (TUESDAY, 'Tuesday'),
-        (WEDNESDAY, 'Wednesday'),
-        (THURSDAY, 'Thursday'),
-        (FRIDAY, 'Friday'),
-        (SATURDAY, 'Saturday'),
+        ('0', 'Sunday'),
+        ('1', 'Monday'),
+        ('2', 'Tuesday'),
+        ('3', 'Wednesday'),
+        ('4', 'Thursday'),
+        ('5', 'Friday'),
+        ('6', 'Saturday'),
         )
     course = models.ForeignKey(Course)
-    day = models.CharField(max_length=5, choices=DAY_CHOICES, default=MONDAY)
+    day = models.CharField(max_length=1, choices=DAY_CHOICES, default=1)
     start_time = models.TimeField()
     end_time = models.TimeField()
